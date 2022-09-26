@@ -99,17 +99,22 @@ OR
 ```
 git fetch
 ```
+9. Check the difference
+```
+git diff
+```
+>>NOTE: [MORE GIT COMMANDS](https://git-scm.com/docs/gittutorial)
 
 ### Step 07: ESTABLISH CI/CD PIPELINE 
 1. Create a new application in Heroku
 2. Three information form "heroku" to setup CI/CD pipeline
-    - 1. HEROKU_EMAIL = 
-    - 2. HEROKU_APP_KEY = 
-    - 3. HEROKU_APP_NAME = 
+    1. HEROKU_EMAIL = 
+    2. HEROKU_APP_KEY = 
+    3. HEROKU_APP_NAME = 
 
 ### Step 08: DOCKER IMAGE and DOCKER COMMANDAS
-1. Create Docker file
-2. Create .dockerignore file
+1. Create Docker file 
+2. Create .dockerignore files and mention the files to be ignored by docker
 3. List of Docker image
 ```
 docker images
@@ -135,4 +140,6 @@ docker ps -a
 ```
 docker stop <container_id>
 ```
->> NOTE: [MORE DOCKER COMMANDS](https://docs.docker.com/engine/reference/commandline/docker/)
+>>NOTE: [MORE DOCKER COMMANDS](https://docs.docker.com/engine/reference/commandline/docker/)
+
+### Step 09: 
