@@ -108,6 +108,10 @@ git fetch
 ```
 git diff
 ```
+10. Restore file
+```
+git restore --staged <file_name>
+```
 >>NOTE: [MORE GIT COMMANDS](https://git-scm.com/docs/gittutorial)
 
 ### Step 07: ESTABLISH CI/CD PIPELINE 
@@ -167,4 +171,12 @@ docker stop <container_id>
 python setup.py install
 ```
     >> NOTE: any file (.py) is konwn as module and folder is known as package
-3. 
+
+### Step 11: CREATING FOLDERS INSIDE wheat FOLDER
+1. logger
+2. exception
+3. pipeline
+4. component
+5. config
+6. entity
+>> NOTE: Each folder is created as a package and each folder shoul contain __init__.py file
