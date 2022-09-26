@@ -180,3 +180,14 @@ python setup.py install
 5. config
 6. entity
 >> NOTE: Each folder is created as a package and each folder shoul contain __init__.py file
+
+### Step 12: LOGGER FOLDER
+>> NOTE: To track all the progress during execution
+1. Write code for logging in __init__.py file
+
+### Step 13: EXCEPTION FOLDER
+>> NOTE: To track the errors and unexpected behaviours during execution
+>> NOTE: Capture the exceptional events
+1. 1. Write code for costum exception handling in __init__.py file
+
+
