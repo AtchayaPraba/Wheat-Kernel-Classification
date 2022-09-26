@@ -142,4 +142,12 @@ docker stop <container_id>
 ```
 >>NOTE: [MORE DOCKER COMMANDS](https://docs.docker.com/engine/reference/commandline/docker/)
 
-### Step 09: 
+### Step 09: CONTINOUS DEPLOYMENT
+1. Create a folder .github
+2. In .github create a folder workflows
+3. In workflows create a file main.yaml 
+<NOTE: Here we write the code for github actions>
+<NOTE: Bsically the tirgger we bind>
+<NOTE:The trigger automatically creates a docker image whenever changes are made in the main branch and automatically send the docker image to the deployment enviroment>
+<NOTE: The github actions are already mcreated by someone else and we are using it>
+
