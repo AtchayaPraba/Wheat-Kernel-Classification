@@ -7,6 +7,11 @@
 3. [VS code IDE](https://code.visualstudio.com/download)
 4. [GIT cli](https://git-scm.com/downloads)
 
+## Install .ipynb kernel
+```
+pip install ipykernel
+```
+
 ## Steps in Creating an End-to-End Machine Learing project:
 ### Step 01:
 1. Create a GitHub Repository
@@ -146,8 +151,20 @@ docker stop <container_id>
 1. Create a folder .github
 2. In .github create a folder workflows
 3. In workflows create a file main.yaml 
-<NOTE: Here we write the code for github actions>
-<NOTE: Bsically the tirgger we bind>
-<NOTE:The trigger automatically creates a docker image whenever changes are made in the main branch and automatically send the docker image to the deployment enviroment>
-<NOTE: The github actions are already mcreated by someone else and we are using it>
+    >> NOTE: Here we write the code for github actions
+    >> NOTE: Bsically the tirgger we bind
+    >> NOTE: The trigger automatically creates a docker image whenever changes are made in the main branch and automatically send the docker image to the deployment enviroment
+    >>NOTE: The github actions are already mcreated by someone else and we are using it
 
+### Step 10: CREATE setup.py FILE
+1. Create folder wheat and inside wheat folder create __init__.py file
+    >> NOTE: wheat is the root folder where the project code is present
+    >> NOTE: Similar to the creation of library in sklearn so that we can inport the wheat folder anywhere as required
+2. Create file setup.py
+    >> NOTE: "pip install -r requirements.txt" 
+    >> NOTE: Useful during deployment of project as a library
+```
+python setup.py install
+```
+    >> NOTE: any file (.py) is konwn as module and folder is known as package
+3. 
