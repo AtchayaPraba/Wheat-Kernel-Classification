@@ -188,6 +188,59 @@ python setup.py install
 ### Step 13: EXCEPTION FOLDER
 >> NOTE: To track the errors and unexpected behaviours during execution
 >> NOTE: Capture the exceptional events
-1. 1. Write code for costum exception handling in __init__.py file
+1. Write code for costum exception handling in __init__.py file
 
+### Step 14: COMPONENT FOLDER
+1. Create a module (.py file) for each componet of the ML pipeline in "component" folder
+    1. data_ingestion.py (DATA INGESTION)
+    2. data_validation.py (DATA VALIDATION)
+    3. data_transformation.py (DATA TRANSFORMATION)
+    4. model_trainer.py (MODEL SELECTION)
+    5. model_evaluation.py (MODEL EVELUATION)
+    6. model_pusher.py (PUSH MODEL)
+>> NOTE: The components perform the tasks
+
+### Step 15: PIPELINE FOLDER
+1. Create a module (.py file) for the entire ML pipeline in "pipeline" folder
+    1. pipeline.py (MACHINE LEARNING PIPELINE)
+
+### Step 16: ENTITY FOLDER
+1. In the "entity" folder the artifact and config for each and every component of the ML PIPELINE is define 
+>> NOTE: When a machine learning pipeline is triggered it generates some outputs in every step.
+>> NOTE: Each component in machine learning pipeline generates some "OUTPUTS" when triggered.These outputs are known as artifacts. Eg: file, image, report, etc
+>> NOTE: When data ingestion component is triggered it produce X_train, y_train, X_test and y_test files as outputs. These outputs known as artifacts.
+>> NOTE: Pickled model object is also an artifact
+2. Artifact files
+    1. DataIngestionArtifact (DATA INGESTION)
+    2. DataValidationArtifact (DATA VALIDATION)
+    3. DataTransformationArtifact (DATA TRANSFORMATION)
+    4. ModelTrainerArtifact (MODEL SELECTION)
+    5. ModelEvaluationArtifact (MODEL EVELUATION)
+    6. ModelPusherArtifact (PUSH MODEL)
+>> NOTE: The information/details about the "INPUTS" gievn to the components in the ML pipeline is konwn as config
+>> NOTE: The config is prepared based on the source of inputs to the components. It contains the basic structure (parameters required) for inputs.
+>> NOTE: Config is like providing initial inputs to the components so that it can perform its tasks
+3. Config files
+    1. DataIngestionConfig (DATA INGESTION)
+    2. DataValidationConfig (DATA VALIDATION)
+    3. DataTransformationConfig (DATA TRANSFORMATION)
+    4. ModelTrainerConfig (MODEL SELECTION)
+    5. ModelEvaluationConfig (MODEL EVELUATION)
+    6. ModelPusherConfig (PUSH MODEL)
+
+### Step 17: CONFIG FOLDER
+1. Reads all the supporting files (.yaml, DB, etc) and the structure form the entity/Config/ and provides configuration to the pipeline when required. 
+>> NOTE: Config folder reads the structure from entity/Config/ and creates objects for each entity/Config/ using the infromation in the supporting files (.yaml, DB, ect). This object created is given to the pipeline when required by the component.
+
+### Step 18: 
+
+### Step 19: 
+
+### Step 20: 
+
+>> NOTE: Creating an object of the class
+>> NOTE: Saving/dump the object into a file is called serialization
+>> NOTE: Loading object from a file is called de-serialization
+>> NOTE: Pickle, dill and joblib are library that preforms serialization and de-serialization
+>> NOTE: Model is also a "class" for which we have to create an "object" in order to perform serialization and de-serialization
 

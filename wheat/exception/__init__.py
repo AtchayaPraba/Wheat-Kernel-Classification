@@ -36,9 +36,9 @@ class WheatException(Exception):
                             error message: [{error_message}]
                             """
         return error_message
-
+    # What to display when the function is called with print statement
     def __str__(self):
         return self.error_message
-
+    # What to display when the function is called without print statement
     def __repr__(self) -> str:
         return WheatException.__name__.str()
