@@ -2,6 +2,8 @@ PyYAML
 numpy
 pandas
 sklearn
+six
+tarfile
 Flask
 gunicorn
 -e .

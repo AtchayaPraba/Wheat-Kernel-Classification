@@ -1,3 +1,5 @@
+# Contains the input information for every component
+
 from collections import namedtuple
 
 # DataIngestionConfig
@@ -21,7 +23,7 @@ DataValidationConfig = namedtuple(
 # DataTransformationConfig 
 DataTransformationConfig = namedtuple(
     "DataTransformationConfig", [
-        "add_bedroom_per_room", # Not for this project
+        # "add_bedroom_per_room", # Not for this project
         "transformed_train_dir", # Location where the transformed train dataset is to be saved
         "transformed_test_dir", # Location where the transformed test dataset is to be saved
         "preprocessed_object_file_path" # Location where the data transformation (FEATURE ENGINEEING) pickle file is to be saved

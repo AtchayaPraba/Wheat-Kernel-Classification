@@ -5,7 +5,7 @@ training_pipeline_config:
 
 
 data_ingestion_config:
-  dataset_download_url: https://archive.ics.uci.edu/ml/machine-learning-databases/00236/seeds_dataset.txt
+  dataset_download_url: https://raw.githubusercontent.com/ageron/handson-ml/master/datasets/housing/housing.tgz
   raw_data_dir: raw_data
   tgz_download_dir: tgz_data
   ingested_dir: ingested_data
@@ -20,7 +20,7 @@ data_validation_config:
 
 
 data_transformation_config:
-  add_bedroom_per_room: true
+  # add_bedroom_per_room: true # Not for this project
   transformed_dir: transformed_data
   transformed_train_dir: train
   transformed_test_dir: test
@@ -31,7 +31,7 @@ data_transformation_config:
   
 model_trainer_config:
   trained_model_dir: trained_model
-  model_file_name: model.pkl
+  trained_model_file_name: model.pkl
   base_accuracy: 0.6
   model_config_dir: config
   model_config_file_name: model.yaml
