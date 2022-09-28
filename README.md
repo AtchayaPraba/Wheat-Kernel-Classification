@@ -198,49 +198,66 @@ python setup.py install
     4. model_trainer.py (MODEL SELECTION)
     5. model_evaluation.py (MODEL EVELUATION)
     6. model_pusher.py (PUSH MODEL)
->> NOTE: The components perform the tasks
+>> NOTE: Each component module (.py file) perform its respective tasks
 
 ### Step 15: PIPELINE FOLDER
 1. Create a module (.py file) for the entire ML pipeline in "pipeline" folder
     1. pipeline.py (MACHINE LEARNING PIPELINE)
 
-### Step 16: ENTITY FOLDER
+### Step 16: CONFIG-INFO FOLDER
+1. Create "config" folder outside the "wheat" folder (root dir). This contains the "json" or ".yaml" or ".csv" file or DB.
+
+### Step 17: ENTITY FOLDER
 1. In the "entity" folder the artifact and config for each and every component of the ML PIPELINE is define 
->> NOTE: When a machine learning pipeline is triggered it generates some outputs in every step.
->> NOTE: Each component in machine learning pipeline generates some "OUTPUTS" when triggered.These outputs are known as artifacts. Eg: file, image, report, etc
->> NOTE: When data ingestion component is triggered it produce X_train, y_train, X_test and y_test files as outputs. These outputs known as artifacts.
->> NOTE: Pickled model object is also an artifact
-2. Artifact files
-    1. DataIngestionArtifact (DATA INGESTION)
-    2. DataValidationArtifact (DATA VALIDATION)
-    3. DataTransformationArtifact (DATA TRANSFORMATION)
-    4. ModelTrainerArtifact (MODEL SELECTION)
-    5. ModelEvaluationArtifact (MODEL EVELUATION)
-    6. ModelPusherArtifact (PUSH MODEL)
+
 >> NOTE: The information/details about the "INPUTS" gievn to the components in the ML pipeline is konwn as config
->> NOTE: The config is prepared based on the source of inputs to the components. It contains the basic structure (parameters required) for inputs.
+>> NOTE: The config is prepared based on the source of inputs to the components. It contains the basic structure (parameters required) for inputs
 >> NOTE: Config is like providing initial inputs to the components so that it can perform its tasks
-3. Config files
+2. Create config file: "config_entity.py" and create nametuples of variables:
     1. DataIngestionConfig (DATA INGESTION)
     2. DataValidationConfig (DATA VALIDATION)
     3. DataTransformationConfig (DATA TRANSFORMATION)
     4. ModelTrainerConfig (MODEL SELECTION)
     5. ModelEvaluationConfig (MODEL EVELUATION)
     6. ModelPusherConfig (PUSH MODEL)
+    7. TrainingPipelineConfig (MACHINE LEARNING PIPELINE)
+>> NOTE: The values for the above nametuples are specified in a "json" or ".yaml" or ".csv" file or DB
+>> NOTE: This file is read using config/configuration.py and the values for each Config variable is assigned form the ("json" or ".yaml" or ".csv" file or DB) respectively
+>> NOTE: Thus object of each Config variable is created
 
-### Step 17: CONFIG FOLDER
-1. Reads all the supporting files (.yaml, DB, etc) and the structure form the entity/Config/ and provides configuration to the pipeline when required. 
->> NOTE: Config folder reads the structure from entity/Config/ and creates objects for each entity/Config/ using the infromation in the supporting files (.yaml, DB, ect). This object created is given to the pipeline when required by the component.
+3. Create "json" or ".yaml" or ".csv" file or DB in which the values for above nametuples are specified. This stores the Config info (values for above nametuples). Create this in Config folder which is outside the "wheat" folder (root dir)
 
-### Step 18: 
+>> NOTE: When a machine learning pipeline is triggered it generates some outputs in every step.
+>> NOTE: Each component in machine learning pipeline generates some "OUTPUTS" when triggered.These outputs are known as artifacts. Eg: file, image, report, etc
+>> NOTE: When data ingestion component is triggered it produce X_train, y_train, X_test and y_test files as outputs. These outputs known as artifacts.
+>> NOTE: Pickled model object is also an artifact
+4. Create artifact file: "artifact_entity.py" 
+    1. DataIngestionArtifact (DATA INGESTION)
+    2. DataValidationArtifact (DATA VALIDATION)
+    3. DataTransformationArtifact (DATA TRANSFORMATION)
+    4. ModelTrainerArtifact (MODEL SELECTION)
+    5. ModelEvaluationArtifact (MODEL EVELUATION)
+    6. ModelPusherArtifact (PUSH MODEL)
 
-### Step 19: 
+### Step 18: CONFIG FOLDER
+1. Reads the structure form the entity/config_entity.py file
+2. Reads the config_info form the Config/config.yaml
+3. Creates objects (functions) for each entity/confif_entity.py using the config_info form the Config/config.yaml
+4. Provides the objects to config/configuration.py when required. This helps to configure every component of the pipeline.
+5. Centralized configuration for the entire project
+
+### Step 19: CONSTANT FOLDER
+1. Create "constant" folder under "wheat" folder.
+2. It contains all the "Hardcoded variables" and the "KEY"s for all the config/config.yaml file keys
 
 ### Step 20: 
 
+### Step 21: 
+
+
+### PICKLE FILE
 >> NOTE: Creating an object of the class
 >> NOTE: Saving/dump the object into a file is called serialization
 >> NOTE: Loading object from a file is called de-serialization
 >> NOTE: Pickle, dill and joblib are library that preforms serialization and de-serialization
 >> NOTE: Model is also a "class" for which we have to create an "object" in order to perform serialization and de-serialization
-
