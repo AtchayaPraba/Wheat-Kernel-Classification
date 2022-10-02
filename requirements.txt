@@ -3,7 +3,10 @@ numpy
 pandas
 sklearn
 six
-tarfile
+matplotlib
+seaborn
+pandas-profiling
+evidently
 Flask
 gunicorn
 -e .

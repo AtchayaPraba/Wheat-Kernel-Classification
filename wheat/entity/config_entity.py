@@ -6,7 +6,7 @@ from collections import namedtuple
 DataIngestionConfig = namedtuple(
     "DataIngestionConfig", [
         "dataset_download_url", # URL from which dataset is to be downloaded
-        "tgz_download_dir", # Location where the compressed file is to be downloaded
+        "source_data_download_dir", # Location where the source file is to be downloaded
         "raw_data_dir", # Location where the extracted file is to be saved
         "ingested_train_dir", # Location where the train dataset is to be saved
         "ingested_test_dir" # Location where the test dataset is to be saved
@@ -16,7 +16,9 @@ DataIngestionConfig = namedtuple(
 # DataValidationConfig 
 DataValidationConfig = namedtuple(
     "DataValidationConfig", [
-        "schema_file_path" # Location where the schema.yaml file is saved
+        "schema_file_path", # Location where the schema.yaml file is saved
+        "report_file_path", # Loction of json file (about data drift)
+        "report_page_file_path" # Loction of html page (to visualize validation report)
     ]
 )
 

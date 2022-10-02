@@ -1,10 +1,11 @@
+from distutils.command.config import config
 import os,sys
 from wheat.logger import logging
 from wheat.exception import WheatException
 from wheat.config.configuration import Configuration
-from wheat.entity.config_entity import DataIngestionConfig
-from wheat.entity.artifact_entity import DataIngestionArtifact
+from wheat.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifact
 from wheat.component.data_ingestion import DataIngestion
+from wheat.component.data_validation import DataValidation
 
 
 class Pipeline():
@@ -29,8 +30,19 @@ class Pipeline():
             raise WheatException(e,sys) from e
 
     # Start DATA VALIDATION componet
-    def start_data_validation(self):
-        pass
+    def start_data_validation(
+        self,
+        data_ingestion_artifact:DataIngestionArtifact
+    ) -> DataValidationArtifact:
+        try:
+            data_validation = DataValidation(
+                data_ingestion_artifact=data_ingestion_artifact, 
+                data_validation_config=self.config.get_data_validation_config()
+            )
+            return data_validation.initiate_data_validation()
+        except Exception as e:
+            raise WheatException(e,sys) from e
+
 
     # Start DATA TRANSFORMATION componet
     def start_data_transformation(self):
@@ -52,7 +64,10 @@ class Pipeline():
     # This is the entire pipeline calling each componet one by one in a sequence
     def run_pipeline(self):
         try:
+            # data ingestion
             data_ingestion_artifact = self.start_data_ingestion()
+            # data validation
+            data_validation_artifact = self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
         except Exception as e:
             raise WheatException(e,sys) from e
             

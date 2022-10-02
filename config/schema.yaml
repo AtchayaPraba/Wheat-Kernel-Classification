@@ -1,0 +1,26 @@
+categorical_columns:
+- target
+columns:
+  A: float64
+  A_Coef: float64
+  C: float64
+  LK: float64
+  LKG: float64
+  P: float64
+  WK: float64
+  target: object
+domain_value:
+  target:
+  - 1
+  - 2
+  - 3
+numerical_columns:
+- A
+- P
+- C
+- LK
+- WK
+- A_Coef
+- LKG
+target_column: target
+

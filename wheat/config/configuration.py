@@ -33,9 +33,9 @@ class Configuration:
                 DATA_INGESTION_ARTIFACT_DIR,
                 self.time_stamp
             )
-            tgz_download_dir = os.path.join(
+            source_data_download_dir = os.path.join(
                 data_ingestion_artifact_dir,
-                data_ingestion_config[DATA_INGESTION_TGZ_DOWNLOAD_DIR_KEY]
+                data_ingestion_config[DATA_INGESTION_SOURCE_DATA_DOWNLOAD_DIR_KEY]
             )          
             raw_data_dir = os.path.join(
                 data_ingestion_artifact_dir,
@@ -55,8 +55,8 @@ class Configuration:
             )  
 
             data_ingestion_config = DataIngestionConfig(
-                dataset_download_url=dataset_download_url,
-                tgz_download_dir=tgz_download_dir, 
+                dataset_download_url=dataset_download_url, 
+                source_data_download_dir=source_data_download_dir, 
                 raw_data_dir=raw_data_dir, 
                 ingested_train_dir=ingested_train_dir, 
                 ingested_test_dir=ingested_test_dir
@@ -69,16 +69,30 @@ class Configuration:
     # for DataValidationConfig
     def get_data_validation_config(self) -> DataValidationConfig:
         try:
-            pass
             data_validation_config = self.config_info[DATA_VALIDATION_CONFIG_KEY]
             schema_file_path = os.path.join(
                 ROOT_DIR,
-                CONFIG_DIR,
+                data_validation_config[DATA_VALIDATION_SCHEMA_FILE_DIR_KEY],
                 data_validation_config[DATA_VALIDATION_SCHEMA_FILE_NAME_KEY]
             )
-            
+            # All the folders created for outputs goes to "artifact" folder in training_pipeline_config
+            data_validation_artifact_dir = os.path.join(
+                self.training_pipeline_config.artifact_dir,
+                DATA_VALIDATION_ARTIFACT_DIR,
+                self.time_stamp
+            )
+            report_file_path = os.path.join(
+                data_validation_artifact_dir,
+                data_validation_config[DATA_VALIDATION_REPORT_FILE_NAME_KEY]
+            )
+            report_page_file_path = os.path.join(
+                data_validation_artifact_dir,
+                data_validation_config[DATA_VALIDATION_REPORT_PAGE_FILE_NAME_KEY]
+            )
             data_validation_config = DataValidationConfig(
-                schema_file_path=schema_file_path
+                schema_file_path=schema_file_path, 
+                report_file_path=report_file_path, 
+                report_page_file_path=report_page_file_path
             )
             logging.info(f"Data Validation Config: {data_validation_config}")
             return data_validation_config
@@ -89,7 +103,6 @@ class Configuration:
     # for DataTransformationConfig
     def get_data_transformation_config(self) -> DataTransformationConfig:
         try:
-            pass
             data_transformation_config = self.config_info[DATA_TRANSFORMATION_CONFIG_KEY]
             # All the folders created for outputs goes to "artifact" folder in training_pipeline_config
             data_transformation_artifact_dir = os.path.join(

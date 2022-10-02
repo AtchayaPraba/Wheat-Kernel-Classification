@@ -5,9 +5,9 @@ training_pipeline_config:
 
 
 data_ingestion_config:
-  dataset_download_url: https://raw.githubusercontent.com/ageron/handson-ml/master/datasets/housing/housing.tgz
+  dataset_download_url: "https://archive.ics.uci.edu/ml/machine-learning-databases/00236/seeds_dataset.txt"
   raw_data_dir: raw_data
-  tgz_download_dir: tgz_data
+  source_data_download_dir: source_data
   ingested_dir: ingested_data
   ingested_train_dir: train
   ingested_test_dir: test 
@@ -15,12 +15,14 @@ data_ingestion_config:
 
 
 data_validation_config:
+  schema_file_dir: config
   schema_file_name: schema.yaml
+  report_file_name: report.json
+  report_page_file_name: report.html
 
 
 
 data_transformation_config:
-  # add_bedroom_per_room: true # Not for this project
   transformed_dir: transformed_data
   transformed_train_dir: train
   transformed_test_dir: test

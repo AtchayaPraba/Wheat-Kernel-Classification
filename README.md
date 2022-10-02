@@ -261,3 +261,12 @@ python setup.py install
 >> NOTE: Loading object from a file is called de-serialization
 >> NOTE: Pickle, dill and joblib are library that preforms serialization and de-serialization
 >> NOTE: Model is also a "class" for which we have to create an "object" in order to perform serialization and de-serialization
+
+### Opensource library for data drift
+1. Install library EVIDENTLY AI
+```
+DataValidation
+```
+2. Data drift: Check ststs of current dataset with previos dataset. When dataset statistics gets change its konwn as data drift
+
+
